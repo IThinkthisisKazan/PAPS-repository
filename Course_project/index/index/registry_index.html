@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles/registry_style.css">
+
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-storage.js"></script>
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <title>Registry</title>
+</head>
+<body>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDm7ZGtz-eCHYtqBhIq6qD2_yeQJtgb6z0",
+            authDomain: "webaviadatabase.firebaseapp.com",
+            databaseURL: "https://webaviadatabase-default-rtdb.firebaseio.com",
+            projectId: "webaviadatabase",
+            storageBucket: "webaviadatabase.appspot.com",
+            messagingSenderId: "503090993776",
+            appId: "1:503090993776:web:8342826b02f5ef1080f2b5"
+        };
+    function click_registry() {
+        let name = document.querySelector('.first_name').value;
+        let second_name = document.querySelector('.second_name').value;
+        let last_name = document.querySelector('.last_name').value;
+        let email = document.querySelector('.email').value;
+        let password = document.querySelector('.password').value;
+        console.log(document.querySelector('.first_name').value+"\n" +second_name+"\n" +last_name+"\n" +email+"\n" +password);
+        var ref = firebase.database().ref("User");
+        firebase.database().ref().push({
+                    firstName: name,
+                    secondName: second_name,
+                    lastName:  last_name,
+                    email: email,
+                    password: password
+        });
+        var createUser = firebase.auth().createUserWithEmailAndPassword(email, password);
+        createUser.catch(function(error){
+            var errorCode = error.code;
+            var errorMessage = error.message;
+            window.alert("Message :" + errorMessage);
+        });
+    return false;
+    }
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+    <div class="header_registration">
+        <div class="logo_name">
+            <h2 class="main_name">Крылья-КАИ</h2>
+            <a class="sub_name" href="../index/main_index.html">Дешевые авиабилеты</a>
+        </div>
+    </div>
+    <div class="registry_main">
+        <div class="registry_container">
+            <h3 class="text_h3_registry">Registry</h3>
+            <form id="main-form" class="registry_container" onsubmit="return click_registry(this)" method="POST">
+                <input type="text" class="registry first_name" id="name" placeholder="First name">
+                <input type="text" class="registry second_name" id="second_name" placeholder="Second name">
+                <input type="text" class="registry last_name" id="last_name" placeholder="Patronymic">
+                <input type="text" class="registry email" id="email" placeholder="Email">
+                <input type="password" class="registry password" id="password" placeholder="Password">
+                <button class="registry button_registry" type="submit" name="submit" value="Готово" id="submit_register">Submit</button>
+            </form>
+           
+        </div>
+    </div>
+    <script src="../js/firebase.js"></script>
+</body>
+</html>

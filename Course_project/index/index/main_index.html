@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>
+		Header
+	</title> 
+    <script src="http://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="../styles/style.css">
+</head>
+<body>
+  <script>
+    function click_find() {
+      let depart = document.querySelector('.depart_town').value;
+      let arrival = document.querySelector('.arrival_town').value;
+      let depart_date = document.querySelector('.dates_depart').value;
+      let arrival_date = document.querySelector('.dates_arrival').value;
+      let status = document.querySelector('.status_value').value;
+      let number = document.querySelector('.number_of_pass').value;
+      console.log(depart+"\n" +arrival+"\n" +depart_date+"\n" +arrival_date+"\n"+number+"\n"+status);
+
+      $("document").ready(function(){
+        $(element).on("click", function(){
+          var $element = $(element);
+          $(".tabs a span").removeClass("active"); 
+          $(element).addClass("active");
+          $("main .content").empty();
+        });
+      });
+
+    return false;
+    }
+  </script>
+  <div id="page-wrapper">
+    <header class="main_header">
+        <div class="logo_name">
+            <h2 class="main_name">Крылья-КАИ</h2>
+            <h3 class="sub_name">Дешевые авиабилеты</h3>
+        </div>
+        <nav class="top_navigation">
+          	<ul>   	
+            	<li class="about_us">
+            		<a class="navigation_link" href="#">
+            			<i class="far fa-address-card"></i>
+            			О нас</a>
+            	</li>
+                <li class="Contacs">
+            		<a class="navigation_link" href="sign_in_index.html">
+            			<i class="fas fa-address-book"></i>
+            			Вход
+                    </a>
+            	</li>
+                <li class="info">
+            		<a class="navigation_link" href="registry_index.html">
+            			<i class="fas fa-registered"></i>
+            			Регистрация
+            		</a>
+            	</li>
+                
+          	</ul>
+        </nav>
+    </header>
+  </div>
+  <div class="relative_container"></div>
+  <div class="search_container">
+    <!-- <form action="https://jsonplaceholder.typicode.com/posts" method="POST" class="form_container" name="form-action"> -->
+    <form  class="form_container" name="form-action"  onsubmit="return click_find(this)" method="POST">
+        <div class="logo_container">
+            <img src="../images/as-logo.png" class="image_logo_search" height="50px" width="50px">
+        </div>
+        <div class="towns_container">
+            <input type="text" class="towns depart_town" id="departTown" maxlength="50" minlength="2" placeholder="Город вылета" required>
+            <input type="text" class="towns arrival_town" id="arrivalTown" maxlength="50" minlength="2" placeholder="Город прибытия" required>
+        </div>
+        <div class="dates_container">
+            <input type="date" class="fill_dates dates_depart" name="depart_date" required>
+            <input type="date" class="fill_dates dates_arrival" name="arrival_date" required>
+        </div>
+        <div class="class_container">
+            <div class="class">    
+            <label>
+                <input type="radio" class="status_value" name="status" value="econom" id="">
+                Эконом
+            </label>
+            <label>
+                <input type="radio" class="status_value" name="status" value="bisness" id="">
+                Бизнес
+            </label>
+        </div>
+        <input type="number" class="number_of_pass" name="nubmer" id="" value="1" min="1" max="10">
+        </div>
+            <button type="submit" class="button_container button_search" id="button_find">НАЙТИ БИЛЕТЫ</button>
+    </form>
+    <!-- <script src="../js/main.js"></script> -->
+  </div>
+  <div class="output_container">
+    <ul>
+     <p id="allcars"></p>
+   </ul>    
+    <p id="demo"></p>
+  </div>
+  <div id="main_container">
+  	<div class="above_all_cont">
+  		<div class="films_items cont1">
+  			<img class="main_photo" src="../images/photo_1.jpg">
+  			<h3 class="cont_title">Потешествуй с нами</h3>
+  			<p class="photo_text">
+                    В заключительной части саги Когда засуха приводит человечество к продовольственному кризису, коллектив исследователей и учёных отправляется сквозь червоточину (которая предположительно соединяет области пространства-времени через большое расстояние) в путешествие, чтобы превзойти прежние ограничения для космических путешествий человека и переселить человечество на другую планету.
+            </p>
+  		</div>
+  		<div class="films_items cont2">
+  			<img class="main_photo" src="../images/photo_4.jpg">
+  			<h3 class="cont_title">Дешевые билеты</h3>
+  			<p class="photo_text">
+                В заключительной части саги Когда засуха приводит человечество к продовольственному кризису, коллектив исследователей и учёных отправляется сквозь червоточину (которая предположительно соединяет области пространства-времени через большое расстояние) в путешествие, чтобы превзойти прежние ограничения для космических путешествий человека и переселить человечество на другую планету.
+            </p>
+  		</div>
+  		<div class="films_items cont3">
+  			<img class="main_photo" src="../images/photo_5.jpg">
+  			<h3 class="cont_title">Комфорт и быстрая обратная связь</h3>
+  			<p class="photo_text">
+                В заключительной части саги Когда засуха приводит человечество к продовольственному кризису, коллектив исследователей и учёных отправляется сквозь червоточину (которая предположительно соединяет области пространства-времени через большое расстояние) в путешествие, чтобы превзойти прежние ограничения для космических путешествий человека и переселить человечество на другую планету.
+            </p>
+  		</div>
+  	</div>
+  </div>
+  
+  <div id="main_footer">
+  		<footer>
+      <ul class="footer_ul">
+        <li class="info_footer">
+          <a class="navigation_link" href="main#">
+            <i class="fab fa-twitter-square"></i>
+            Twitter
+          </a>
+        </li>
+        <li class="info_footer">
+          <a class="navigation_link" href="main#">
+            <i class="fab fa-facebook-square"></i>
+            FaceBook
+          </a>
+        </li>
+        <li class="info_footer">
+          <a class="navigation_link" href="main#">
+            <i class="fab fa-vk"></i>
+            VK
+          </a>
+        </li>
+        <li class="info_footer">
+          <a class="navigation_link" href="main#">
+            <i class="fab fa-instagram"></i>
+            Instagram
+          </a>
+        </li>
+        <li class="info_footer">
+          <a class="navigation_link" href="main#">
+            <i class="fab fa-viber"></i>
+            Viber
+          </a>
+        </li>
+      </ul>
+      <ul class="footer_ul_under">
+        <li class="info_footer">
+          <a class="footer_navigation_link" href="main#">
+            Вакансии
+          </a>
+        </li>
+        <li class="info_footer">
+          <a class="footer_navigation_link" href="main#">
+            Реклама
+          </a>
+        </li>
+        <li class="info_footer">
+          <a class="footer_navigation_link" href="main#">
+            Партнёрская программа
+          </a>
+        </li>
+        <li class="info_footer">
+          <a class="footer_navigation_link" href="main#">
+            Правила
+          </a>
+        </li>
+      </ul>  
+      </footer>
+  	</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="../styles/registry_style.css">
+    
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-database.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.6.3/firebase-storage.js"></script>
+
+    <title>Sign in</title>
+</head>
+<body>
+    <script>
+        var firebaseConfig = {
+            apiKey: "AIzaSyDm7ZGtz-eCHYtqBhIq6qD2_yeQJtgb6z0",
+            authDomain: "webaviadatabase.firebaseapp.com",
+            databaseURL: "https://webaviadatabase-default-rtdb.firebaseio.com",
+            projectId: "webaviadatabase",
+            storageBucket: "webaviadatabase.appspot.com",
+            messagingSenderId: "503090993776",
+            appId: "1:503090993776:web:8342826b02f5ef1080f2b5"
+        };
+        function click_sign_in() {
+            let email = document.querySelector('.email').value;
+            let password = document.querySelector('.password').value;
+            if(email != "" && password != ""){
+                console.log(email+"\n" +password); 
+                firebase.auth().signInWithEmailAndPassword(email, password)
+                .then((userCredential) => {
+                    // Signed in                    
+                    var user = userCredential.user;
+                    alert("Success user has been sign in");
+                    
+                })
+                .catch((error) => {
+                    alert("Error");
+                    var errorCode = error.code;
+                    var errorMessage = error.message;
+                    // ..
+                });
+            }
+        return false;
+        }
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    </script>
+    <div class="header_registration">
+        <div class="logo_name">
+            <h2 class="main_name">Крылья-КАИ</h2>
+            <a class="sub_name" href="../index/main_index.html">Дешевые авиабилеты</a>
+        </div>
+    </div>
+    <div class="registry_main">
+        <div class="registry_container">
+            <h3 class="text_h3_registry">Sign in</h3>
+            <form id="sign_in_form" class="sign_in_container" onsubmit="return click_sign_in(this)" method="POST">
+                <input type="text" class="registry email" placeholder="Email">
+                <input type="password" class="registry password" placeholder="Password">
+                <button class="registry button_registry">Submit</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

@@ -1,0 +1,17 @@
+[
+    {
+        "company" : "Ural",
+        "price" : "1000",
+        "time" : "1.20 hour",
+        "class" : "econom",
+        "number" : "5"
+
+    },
+    {
+        "company" : "Flot",
+        "price" : "4000",
+        "time" : "10 hour",
+        "class" : "bisness",
+        "number" : "5"
+    }
+]

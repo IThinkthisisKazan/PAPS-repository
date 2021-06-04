@@ -1,0 +1,32 @@
+<script>
+    var firebaseConfig = {
+        apiKey: "AIzaSyDm7ZGtz-eCHYtqBhIq6qD2_yeQJtgb6z0",
+        authDomain: "webaviadatabase.firebaseapp.com",
+        databaseURL: "https://webaviadatabase-default-rtdb.firebaseio.com",
+        projectId: "webaviadatabase",
+        storageBucket: "webaviadatabase.appspot.com",
+        messagingSenderId: "503090993776",
+        appId: "1:503090993776:web:8342826b02f5ef1080f2b5"
+    };
+    function click_registry() {
+    let name = document.querySelector('.first_name').value;
+    let second_name = document.querySelector('.second_name').value;
+    let last_name = document.querySelector('.last_name').value;
+    let email = document.querySelector('.email').value;
+    let password = document.querySelector('.password').value;
+    console.log(document.querySelector('.first_name').value+"\n" +second_name+"\n" +last_name+"\n" +email+"\n" +password);
+    var ref = firebase.database().ref("User");
+    var sec_ref = ref.child('user1');
+    firebase.database().ref(toString(sec_ref)).set({
+                firstName: name,
+                secondName: second_name,
+                lastName:  last_name,
+                email: email,
+                password: password
+    });
+    alert("You have been registry");
+return false;
+}
+// Initialize Firebase
+firebase.initializeApp(firebaseConfig);
+</script>
